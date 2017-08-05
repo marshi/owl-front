@@ -1,8 +1,8 @@
 import * as ReactDOM from "react-dom"
 import * as React from "react"
 
-// console.log("aiueo");
 ReactDOM.render(
-    <div />,
+    <div>rendering</div>,
     document.getElementById("list")
 );
+

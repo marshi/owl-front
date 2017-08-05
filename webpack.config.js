@@ -1,6 +1,8 @@
+const webpack = require('webpack');
 module.exports = {
     entry: {
-        main: `${__dirname}/js/main.js`
+        main: `${__dirname}/js/main.js`,
+        ticket_list: `${__dirname}/js/entry/ticket_list.js`
     },
     output: {
         filename: '[name]-pack.js',
@@ -13,7 +15,8 @@ module.exports = {
                 `${__dirname}/js`
             ],
             exclude: [
-                `${__dirname}/js/vendor`
+                `${__dirname}/js/vendor`,
+                `${__dirname}/js/server.js`
             ],
             loader: 'babel-loader',
             query: {
