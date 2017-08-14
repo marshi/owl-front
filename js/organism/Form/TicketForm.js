@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 import DefaultRaisedButton from "../../atom/Button/Buttons"
 import TextField from "../../../node_modules/material-ui/TextField/TextField";
 import { withStyles, createStyleSheet } from 'material-ui/styles';

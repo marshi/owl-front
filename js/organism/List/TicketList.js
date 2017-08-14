@@ -1,8 +1,9 @@
-import * as React from "react";
+import React from "react";
 
 import PropTypes from 'prop-types';
-import { withStyles, createStyleSheet } from 'material-ui/styles';
-import List, { ListItem, ListItemIcon, ListItemText } from 'material-ui/List';
+import {createStyleSheet, withStyles} from 'material-ui/styles';
+import List from 'material-ui/List';
+import TicketBackyardItem from '../../molecule/TicketBackyardItem/TicketBackyardItem';
 
 const styleSheet = createStyleSheet(theme => ({
   root: {
@@ -19,12 +20,8 @@ class TicketList extends React.Component {
     return (
       <div className={classes.root} style={this.props.style}>
         <List>
-          <ListItem button>
-            <ListItemText primary="Trash"/>
-          </ListItem>
-          <ListItem button component="a" href="#simple-list">
-            <ListItemText primary="Spam"/>
-          </ListItem>
+          <TicketBackyardItem primary="Trash"/>
+          <TicketBackyardItem primary="Item"/>
         </List>
       </div>
     );

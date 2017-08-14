@@ -1,5 +1,5 @@
-import * as ReactDOM from "react-dom"
-import * as React from "react"
+import ReactDOM from "react-dom"
+import React from "react"
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import TicketMap from "../template/TticketMap/TicketMap";
 

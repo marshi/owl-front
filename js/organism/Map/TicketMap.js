@@ -4,6 +4,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {createStyleSheet, withStyles} from 'material-ui/styles';
 import Grid from 'material-ui/Grid';
+import TicketMapCell from "../../molecule/Cell/TicketMapCell";
 
 const styleSheet = createStyleSheet(theme => ({
   root: {
@@ -37,9 +38,7 @@ class TicketMap extends React.Component {
             {Array.from(new Array(row).keys()).map(row =>
               <Grid container wrap="nowrap" className={classes.demo} justify="center" spacing="0">
                 {Array.from(new Array(column).keys()).map(value =>
-                    <Grid key={value} item>
-                      <div className={classes.cell}>aiueo</div>
-                    </Grid>
+                  <TicketMapCell key={value} classes={classes.cell} x={row} y={value}/>
                 )}
               </Grid>
             )}

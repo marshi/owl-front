@@ -1,8 +1,10 @@
-import * as React from "react";
+import React from "react";
 import TaskList from "../../organism/List/TicketList";
 import TicketMap from "../../organism/Map/TicketMap";
+import {DragDropContext} from 'react-dnd';
+import HTML5Backend from "react-dnd-html5-backend";
 
-export default class TicketMapTemplate extends React.Component {
+class TicketMapTemplate extends React.Component {
 
   constructor() {
     super();
@@ -28,3 +30,5 @@ export default class TicketMapTemplate extends React.Component {
   }
 
 }
+
+export default DragDropContext(HTML5Backend)(TicketMapTemplate)
