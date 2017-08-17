@@ -4,10 +4,12 @@ import {ItemTypes} from "../TicketBackyardItem/TicketBackyardItem";
 import Grid from "material-ui/Grid";
 
 const squareTarget = {
-  drop(props) {
-    console.log("move");
-    console.log(props.x + " " + props.y);
+
+  drop(props, monitor, component) {
+    const sourceProps = monitor.getItem();
+    component.setState({ticketNode: <div>{sourceProps.primary}</div>})
   }
+
 };
 
 function collect(connect, monitor) {
@@ -18,13 +20,20 @@ function collect(connect, monitor) {
 }
 
 class TicketMapCell extends Component {
+
+  constructor() {
+    super();
+    this.state = {};
+    this.state.ticketNode = null;
+  }
+
   render() {
     const { x, y, connectDropTarget, isOver } = this.props;
 
     return connectDropTarget(
       <div>
         <Grid key={this.props.key} item>
-          <div className={this.props.classes}>aiueo</div>
+          <div className={this.props.classes}>{this.state.ticketNode}</div>
         </Grid>
       </div>
     );

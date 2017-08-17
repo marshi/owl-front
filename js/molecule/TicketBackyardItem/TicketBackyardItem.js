@@ -5,7 +5,16 @@ import {ListItem, ListItemText} from "material-ui/List/index";
 
 const ticketBackyardItemSource = {
   beginDrag(props) {
-    return {};
+    return {
+      primary: props.primary
+    };
+  },
+
+  endDrag(props, monitor, component) {
+    console.log("monitor");
+    console.log(component);
+    component.setState({node: null});
+    return {iii: "aiueo"};
   }
 };
 
@@ -21,17 +30,25 @@ function collect(connect, monitor) {
 }
 
 class TicketBackyardItem extends Component {
-  render() {
-    const { connectDragSource, isDragging } = this.props;
-    const primary = this.props.primary;
-    return connectDragSource(
-      <div>
-        <ListItem>
-          <ListItemText primary={primary}/>
-        </ListItem>
-      </div>
-    );
+
+  constructor(props) {
+    super();
+    this.state = {};
+    this.state.node =
+      props.connectDragSource(
+        <div>
+          <ListItem>
+            <ListItemText primary={props.primary}/>
+          </ListItem>
+        </div>
+      )
+    ;
   }
+
+  render() {
+    return this.state.node;
+  }
+
 }
 
 TicketBackyardItem.propTypes = {

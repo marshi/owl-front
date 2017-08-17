@@ -29,7 +29,7 @@ module.exports = {
   devtool: 'inline-source-map',
   plugins: [
     new webpack.optimize.DedupePlugin(), //dedupe similar code
-    new webpack.optimize.UglifyJsPlugin(), //minify everything
+    // new webpack.optimize.UglifyJsPlugin(), //minify everything
     new webpack.optimize.AggressiveMergingPlugin()//Merge chunks
   ]
 };
