@@ -2,12 +2,13 @@ import React, {Component} from 'react';
 import {DropTarget} from 'react-dnd';
 import {ItemTypes} from "../TicketBackyardItem/TicketBackyardItem";
 import Grid from "material-ui/Grid";
+import TicketBackyardItem from "../TicketBackyardItem/TicketBackyardItem";
 
-const squareTarget = {
+const callbacks = {
 
   drop(props, monitor, component) {
     const sourceProps = monitor.getItem();
-    component.setState({ticketNode: <div>{sourceProps.primary}</div>})
+    component.setState({ticketNode: <div><TicketBackyardItem primary={sourceProps.primary}/></div>})
   }
 
 };
@@ -40,4 +41,4 @@ class TicketMapCell extends Component {
   }
 }
 
-export default DropTarget(ItemTypes.TicketBackyardItem, squareTarget, collect)(TicketMapCell);
+export default DropTarget(ItemTypes.TicketBackyardItem, callbacks, collect)(TicketMapCell);

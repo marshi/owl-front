@@ -11,11 +11,9 @@ const ticketBackyardItemSource = {
   },
 
   endDrag(props, monitor, component) {
-    console.log("monitor");
-    console.log(component);
-    component.setState({node: null});
-    return {iii: "aiueo"};
+    props.removeFun(props.primary);
   }
+
 };
 
 export const ItemTypes = {
@@ -33,27 +31,24 @@ class TicketBackyardItem extends Component {
 
   constructor(props) {
     super();
-    this.state = {};
-    this.state.node =
-      props.connectDragSource(
-        <div>
-          <ListItem>
-            <ListItemText primary={props.primary}/>
-          </ListItem>
-        </div>
-      )
-    ;
   }
 
   render() {
-    return this.state.node;
+    return this.props.connectDragSource(
+      <div>
+        <ListItem>
+          <ListItemText primary={this.props.primary}/>
+        </ListItem>
+      </div>
+    );
   }
 
 }
 
 TicketBackyardItem.propTypes = {
   connectDragSource: PropTypes.func.isRequired,
-  isDragging: PropTypes.bool.isRequired
+  isDragging: PropTypes.bool.isRequired,
+  removeFun: PropTypes.func.isRequired
 };
 
 export default DragSource(ItemTypes.TicketBackyardItem, ticketBackyardItemSource, collect)(TicketBackyardItem);
