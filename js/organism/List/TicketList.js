@@ -35,15 +35,9 @@ function collect(connet, monitor) {
 }
 
 function removeFun(self, primary) {
-  console.log(self);
-  console.log(self.state);
   const newItems = self.state.items.slice();
-  console.log(newItems);
   _.pull(newItems, primary);
-  console.log(newItems);
   self.setState({items: newItems});
-  console.log("state");
-  console.log(self.state);
 }
 
 class TicketList extends React.Component {
@@ -52,14 +46,10 @@ class TicketList extends React.Component {
     super();
     this.state = {};
     this.state.items = ["Trash", "Item"];
-    console.log("constructor")
   }
 
   render() {
     const connectDropTarget = this.props.connectDropTarget;
-    console.log("render");
-    console.log(this.state);
-    console.log(this);
     const self = this;
 
     return connectDropTarget(

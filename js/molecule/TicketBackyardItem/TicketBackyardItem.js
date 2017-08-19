@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { DragSource } from 'react-dnd';
 import {ListItem, ListItemText} from "material-ui/List/index";
 
-const ticketBackyardItemSource = {
+const callbacks = {
   beginDrag(props) {
     return {
       primary: props.primary
@@ -51,4 +51,4 @@ TicketBackyardItem.propTypes = {
   removeFun: PropTypes.func.isRequired
 };
 
-export default DragSource(ItemTypes.TicketBackyardItem, ticketBackyardItemSource, collect)(TicketBackyardItem);
+export default DragSource(ItemTypes.TicketBackyardItem, callbacks, collect)(TicketBackyardItem);

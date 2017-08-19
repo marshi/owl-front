@@ -19,8 +19,6 @@ const styleSheet = createStyleSheet(theme => ({
 class TicketForm extends React.Component {
 
   render() {
-    console.log("props");
-    console.log(this.props.classes);
     const classes = this.props.classes;
     return (
       <form onSubmit={() => TicketPost("http://localhost:8080/tickets", {
